@@ -5,17 +5,35 @@ import CadastrarProfessor from "./professor/Cadastrar"
 import ListarProfessor from "./professor/Listar"
 import EditarProfessor from "./professor/Editar"
 
+import CadastrarAluno from './aluno/CadastrarAluno'
+import ListarAluno from './aluno/ListarAluno'
+import EditarAluno from './aluno/EditarAluno'
+
+
+
 const MainPage = () => {
     return (
         <BrowserRouter>
             <MyMenu />
             <Container
-                sx={{mt:10}}
+                sx={{ mt: 10 }}
             >
                 <Routes>
-                    <Route path="cadastrarProfessor" element={<CadastrarProfessor/>}/> 
-                    <Route path="listarProfessor" element={<ListarProfessor/>}/>   
-                    <Route path="editarProfessor/:id" element={<EditarProfessor/>}/>      
+                    <Route path="cadastrarProfessor" element={<CadastrarProfessor />} />
+                    <Route path="listarProfessor" element={<ListarProfessor />} />
+                    <Route path='editarProfessor/:id' element={<EditarProfessor />} />
+                </Routes>
+            </Container>
+            <Container sx={{ mt: 8 }}>
+                <Routes>
+                    <Route path='cadastrarAluno' element={<CadastrarAluno />} />
+                    <Route path='listarAluno' element={<ListarAluno />} />
+                    <Route path='editarAluno/:id' element={<EditarAluno />} />
+                </Routes>
+            </Container>
+            <Container sx={{ mt: 8 }}>
+                <Routes>
+                   
                 </Routes>
             </Container>
         </BrowserRouter>

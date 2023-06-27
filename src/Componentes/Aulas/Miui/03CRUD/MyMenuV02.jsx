@@ -4,6 +4,51 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 const MyMenu = () => {
 
+    const [anchorElAluno,setanchorElAluno] = useState(null)
+    const handleOpenAnchorElAluno =(event)=>{
+        setanchorElAluno(event.currentTarget)
+    }
+    const handleCloseAnchorElAluno = ()=>{
+        setanchorElAluno(null)
+    }
+
+    function dropAlunoMenu(){
+        return (
+            <Box>
+                <Button
+                    sx={{
+                        color: "white",
+                        my: 2 
+                    }}
+                    onClick={handleOpenAnchorElAluno}
+                >
+                    Alunos
+                </Button>
+                <Menu
+                    anchorEl={anchorElAluno}
+                    open={Boolean (anchorElAluno)}
+                    onClose={handleCloseAnchorElAluno}
+                >
+                    <MenuItem
+                        onClick={handleCloseAnchorElAluno}
+                        component={Link}
+                        to ={"cadastrarAluno"}
+                    >
+                        <Typography>Cadastrar</Typography>
+                    </MenuItem>
+                    <MenuItem
+                        onClick={handleCloseAnchorElProfessor}
+                        component={Link}
+                        to={"listarAluno"}
+                    >
+                        <Typography>Listar</Typography>
+                    </MenuItem>
+                </Menu>
+            </Box>
+        )
+    }
+
+
     const [anchorElProfessor,setanchorElProfessor] = useState(null)
     const handleOpenAnchorElProfessor =(event)=>{
         setanchorElProfessor(event.currentTarget)
@@ -68,14 +113,7 @@ const MyMenu = () => {
                     </Typography>
                     <Box sx={{ ml: 3, width: "100%", display: "flex", justifyContent: "flex-end" }}>
                         {dropProfMenu()}
-                        <Button
-                            sx={{
-                                color: "white",
-                                my: 2
-                            }}
-                        >
-                            Alunos
-                        </Button>
+                        {dropAlunoMenu()}
                         <Button>
                             Sobre
                         </Button>
