@@ -31,7 +31,7 @@ const Cadastrar = () => {
     return (
         <>
             <Typography variant="h5" fontWeight="bold">
-                Cadastrar Professor
+                Cadastrar Aluno 
             </Typography>
             <Box
                 component="form"
